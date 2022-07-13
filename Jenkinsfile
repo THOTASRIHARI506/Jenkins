@@ -42,7 +42,7 @@ stage('Deploy to Kubernetes cluster') {
     sh """
         export PATH=$PATH:/opt/kube
         kubectl get nodes
-        kubectl apply -f sample.yaml.yml
+        kubectl apply -f sample.yaml
     """
 }
 }
