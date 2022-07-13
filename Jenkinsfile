@@ -7,7 +7,7 @@ def ARTIFACTORY_PORT = params.ARTIFACTORY_PORT
 def ARTIFACTORY_KEY = params.ARTIFACTORY_KEY
 
 stage('checkout') {
- git branch: 'master', credentialsId: 'gitlab_cred', url: 'https://gitlab.com/rajudruva2/maven-project2.git'   
+ git branch: 'master', credentialsId: 'gitlab_cred', url: 'https://github.com/THOTASRIHARI506/Jenkins'   
  }
 
 stage('build') {
