@@ -1,20 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: boot-with-k8s
+  creationTimestamp: null
+  labels:
+    app: Sample
+  name: Sample
+  namespace: default
 spec:
-    replicas: 1
-    selector:
+  replicas: 2
+  selector:
     matchLabels:
-        app: boot-with-k8s
-    template:
+      app: Sample-1
+  strategy: {}
+  template:
     metadata:
-        labels:
-        app: boot-with-k8s
+      creationTimestamp: null
+      labels:
+        app: Sample-1
     spec:
-        containers:
-        - name: boot-with-k8s
-        image: janardhan54/boot-with-k8s:latest
+      containers:
+      - image: {{ARTIFACTORY_IP}}:{{ARTIFACTORY_PORT}}/{{ARTIFACTORY_KEY}}/{{IAMGE_NAME}}:{{TAG_NAME}}
+        name: maven-project1-c1
         imagePullPolicy: Always
-        ports:
-        - containerPort: 9090
+        resources: {}
+      imagePullSecrets:
+          - name: regcred
+status: {}
+
